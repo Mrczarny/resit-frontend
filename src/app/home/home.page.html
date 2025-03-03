@@ -1,0 +1,63 @@
+
+
+<ion-content [fullscreen]="true">
+<ion-grid fixed>
+  <ion-row>
+    <ion-col size="12">
+      <ion-title size="large">Latest</ion-title>
+    </ion-col>
+  </ion-row>
+  <ion-row >
+    <ion-col size="3">
+      <ion-grid fixed>
+        <ion-row>
+          <ion-card>
+            <ion-grid fixed>
+              <ion-row>
+                <ion-col size="6"> 🔴LIVE READING: </ion-col>
+                <ion-col size="6">
+                  <ion-text >
+                    temperature: {{latestTemperature}}°C
+                  </ion-text>
+                  <br/>
+                  <ion-text>
+                    humidity: {{latestHumidity}}%
+                  </ion-text>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12">
+            <ion-card>
+              <ion-card-header>
+                <ion-card-title>Last reading</ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                @for (reading of latestReadings; track $index) {
+                  <ion-text>
+                    {{reading.timestamp}}: T: {{reading.temperature}}°C, H: {{reading.humidity}}%
+                  </ion-text>
+                  <br/>
+                }
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-col>
+    <ion-col size="8">
+        <ion-card>
+          <ion-card-header>
+
+            <ion-card-title>Week's graph</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <canvas id="weekChart">{{weekChart}}</canvas>
+          </ion-card-content>
+        </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-content>
