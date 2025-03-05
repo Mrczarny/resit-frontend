@@ -47,7 +47,7 @@
         </ion-row>
       </ion-grid>
     </ion-col>
-    <ion-col size="8">
+    <ion-col size="9">
         <ion-card>
           <ion-card-header>
 
@@ -55,6 +55,30 @@
           </ion-card-header>
           <ion-card-content>
             <canvas id="weekChart">{{weekChart}}</canvas>
+          </ion-card-content>
+        </ion-card>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>custom graph</ion-card-title>
+          </ion-card-header>
+          <ion-card-content > 
+            <ion-row class="ion-justify-content-center">
+              <ion-col size="12"><canvas id="customChart">{{customChart}}</canvas></ion-col>
+              <ion-col size="12">
+                <ion-row>
+                  <ion-col size="5">
+                    <ion-input type="text" label="Start timestamp" [(ngModel)]="startTimestamp" placeholder="YYYY-MM-DDTHH:MM:SSZ"></ion-input>
+                  </ion-col>
+                  <ion-col size="5"> <ion-input type="text" [(ngModel)]="endTimestamp" label="End timestamp" placeholder="YYYY-MM-DDTHH:MM:SSZ"></ion-input></ion-col>
+                  <ion-col size="3"> <ion-input type="number" [(ngModel)]="points" label="Number of points" placeholder="2-100"></ion-input></ion-col>
+                </ion-row>
+              </ion-col>
+              <ion-col size="auto">
+                <ion-button (click)="onChartUpdate()">Generate</ion-button>
+              </ion-col>
+            </ion-row>
+            
+
           </ion-card-content>
         </ion-card>
     </ion-col>
